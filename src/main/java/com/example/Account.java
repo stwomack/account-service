@@ -1,5 +1,7 @@
 package com.example;
 
+import org.springframework.context.annotation.PropertySource;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

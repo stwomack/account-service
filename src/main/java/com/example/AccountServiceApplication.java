@@ -1,8 +1,10 @@
 package com.example;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +15,8 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.core.MessageSource;
 import org.springframework.messaging.support.GenericMessage;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -41,4 +45,17 @@ public class AccountServiceApplication {
 interface AccountRepository extends JpaRepository<Account, Long> {
 	@RestResource(path = "by-name")
 	Collection<Account> findByAccountName(@Param("accountName") String accountName);
+}
+
+@RefreshScope
+@RestController
+class MessageRestController {
+
+	@Value("${message}")
+	private String message;
+
+	@RequestMapping("/message")
+	String getMessage() {
+		return this.message;
+	}
 }
