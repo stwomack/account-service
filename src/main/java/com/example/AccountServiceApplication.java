@@ -55,10 +55,10 @@ interface AccountRepository extends JpaRepository<Account, Long> {
 @RestController
 class MessageRestController {
 
-	@Value("${message}")
+	@Value("${foo}")
 	private String message;
 
-	@RequestMapping("/message")
+	@RequestMapping("/foo")
 	String getMessage() {
 		return this.message;
 	}
