@@ -7,6 +7,6 @@ applications:
     path: target/account-service-0.0.1-SNAPSHOT.jar
     services:
       - womack-rabbitmq
-      - myconfig
+      - womack-configserver
     env:
       SPRING_PROFILES_ACTIVE: dev
