@@ -1,0 +1,29 @@
+---
+jobs:
+- name: run-tests
+  public: true
+  serial: true
+  plan:
+  - get: account-service
+    trigger: true
+  - task: run-tests
+    file: account-service/ci/tests.yml
+  - put: deploy-account-service
+    params:
+      manifest: account-service/manifest.yml
+
+resources:
+- name: account-service
+  type: git
+  source:
+    uri: https://github.com/stwomack/account-service.git
+
+- name: deploy-account-service
+  type: cf
+  source:
+    api: https://api.pcf1.fe.gopivotal.com
+    username: {{cf-user}}
+    password: {{cf-password}}
+    organization: {{cf-org}}
+    space: {{cf-space}}
+    skip_cert_check: false

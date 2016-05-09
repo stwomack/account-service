@@ -51,15 +51,15 @@ interface AccountRepository extends JpaRepository<Account, Long> {
 	Collection<Account> findByAccountName(@Param("accountName") String accountName);
 }
 
-@RefreshScope
-@RestController
-class MessageRestController {
-
-	@Value("${foo}")
-	private String message;
-
-	@RequestMapping("/foo")
-	String getMessage() {
-		return this.message;
-	}
-}
+//@RefreshScope
+//@RestController
+//class MessageRestController {
+//
+//	@Value("${foo}")
+//	private String message;
+//
+//	@RequestMapping("/foo")
+//	String getMessage() {
+//		return this.message;
+//	}
+//}
