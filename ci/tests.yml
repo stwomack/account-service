@@ -1,15 +1,17 @@
----
 platform: linux
 
 image_resource:
   type: docker-image
   source:
-    repository: making/m2
-    tag: 'latest'
+    repository: sonarqube
+    tag: latest
 
 inputs:
-- name: account-service
+  - name: account-service
 
 run:
-  path: bash
-  args: ['-c', 'mvn install']
+  path: "source-code/mvnw"
+  args: ["-f", "account-service/pom.xml", "package", "sonar:sonar"]
+
+params:
+  MAVEN_BASEDIR: account-service
