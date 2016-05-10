@@ -6,11 +6,11 @@ image_resource:
     repository: sonarqube
     tag: latest
 
-inputs:
-  - name: account-service
+#inputs:
+#  - name: account-service
 
 run:
-  path: "source-code/mvnw"
+  path: "account-service/mvnw"
   args: ["-f", "account-service/pom.xml", "package", "sonar:sonar"]
 
 params:
