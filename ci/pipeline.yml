@@ -1,6 +1,6 @@
 ---
 jobs:
-- name: run-tests
+- name: test-and-deploy
   public: true
   serial: true
   plan:
@@ -27,4 +27,4 @@ resources:
     password: {{cf-password}}
     organization: {{cf-org}}
     space: {{cf-space}}
-    skip_cert_check: false
+    skip_cert_check: true
