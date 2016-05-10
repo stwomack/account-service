@@ -4,7 +4,7 @@ memory: 512M
 applications:
   - name: account-service	
     host: accountz
-    path: tharget/account-service-0.0.1-SNAPSHOT.jar
+    path: target/account-service-0.0.1-SNAPSHOT.jar
     services:
       - womack-rabbitmq
 #      - womack-configserver
