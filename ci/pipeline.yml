@@ -11,6 +11,7 @@ jobs:
   - put: deploy-account-service
     params:
       manifest: account-service/manifest.yml
+      path: account-service/
 
 resources:
 - name: account-service
