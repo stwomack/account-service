@@ -11,7 +11,7 @@ inputs:
 
 run:
   path: "account-service/mvnw"
-  args: ["-f", "account-service/pom.xml", "package", "sonar:sonar"]
+  args: ["-f", "account-service/pom.xml", "clean install", "sonar:sonar"]
 
 params:
   MAVEN_BASEDIR: account-service
