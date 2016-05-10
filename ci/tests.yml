@@ -10,7 +10,7 @@ image_resource:
 #  - name: account-service
 
 run:
-  path: "account-service/mvnw"
+  path: "mvnw"
   args: ["-f", "account-service/pom.xml", "package", "sonar:sonar"]
 
 params:
