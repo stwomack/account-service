@@ -17,13 +17,13 @@ resources:
     skip_cert_check: true
 
 jobs:
-- name: test-and-deploy
+- name: test-build-deploy
   public: true
   serial: true
   plan:
   - get: source-code
     trigger: true
-  - task: build-and-run-tests
+  - task: build
     file: source-code/ci/build.yml
   - put: cf
     params:
