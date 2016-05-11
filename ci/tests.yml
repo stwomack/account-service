@@ -9,6 +9,9 @@ image_resource:
 inputs:
   - name: account-service
 
+outputs:
+- name: account-service-target
+
 run:
   path: "account-service/mvnw"
   args: ["-f", "account-service/pom.xml", "package"]

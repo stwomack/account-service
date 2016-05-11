@@ -10,8 +10,8 @@ jobs:
     file: account-service/ci/tests.yml
   - put: deploy-account-service
     params:
-      manifest: account-service/manifest.yml
-      path: account-service/
+      manifest: account-service-target/manifest.yml
+      path: account-service-target/
 
 resources:
 - name: account-service
