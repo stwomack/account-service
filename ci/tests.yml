@@ -1,7 +1,7 @@
 platform: linux
 image: docker:///java#8
 inputs:
-  - name: pcfdemo
+  - name: account-service
 run:
   path: "account-service/mvnw"
   args: ["-f", "account-service/pom.xml", "package"]
