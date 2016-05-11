@@ -1,25 +1,12 @@
 ---
-jobs:
-- name: test-and-deploy
-  public: true
-  serial: true
-  plan:
-  - get: account-service
-    trigger: true
-  - task: run-tests
-    file: account-service/ci/tests.yml
-  - put: deploy-account-service
-    params:
-      manifest: account-service-target/manifest.yml
-      path: account-service-target/
-
 resources:
-- name: account-service
+- name: source-code
   type: git
   source:
     uri: https://github.com/stwomack/account-service.git
+    branch: master
 
-- name: deploy-account-service
+- name: cf
   type: cf
   source:
     api: https://api.pcf1.fe.gopivotal.com
@@ -28,3 +15,17 @@ resources:
     organization: {{cf-org}}
     space: {{cf-space}}
     skip_cert_check: true
+
+jobs:
+- name: test-and-deploy
+  public: true
+  serial: true
+  plan:
+  - get: source-code
+    trigger: true
+  - task: build-and-run-tests
+    file: account-service/ci/build.yml
+  - put: cf
+    params:
+      manifest: source-code/manifest.yml
+      path: build-output/account-service-0.0.1-SNAPSHOT.jar

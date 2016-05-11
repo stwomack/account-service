@@ -1,20 +1,17 @@
+---
 platform: linux
 
 image_resource:
   type: docker-image
   source:
-    repository: sonarqube
-    tag: latest
+    repository: java
+    tag: '8'
 
 inputs:
-  - name: account-service
+  - name: source-code
 
 outputs:
-- name: account-service-target
+  - name: build-output
 
 run:
-  path: "account-service/mvnw"
-  args: ["-f", "account-service/pom.xml", "package"]
-
-params:
-  MAVEN_BASEDIR: account-service
+  path: source-code/ci/tasks/build.sh
