@@ -1,7 +1,7 @@
 platform: linux
 image: docker:///java#8
 inputs:
-  - name: account-service
+  - name: pcfdemo
 run:
-  path: mvn
-  args: [ clean, test ]
+  path: "account-service/mvnw"
+  args: ["-f", "account-service/pom.xml", "package"]
