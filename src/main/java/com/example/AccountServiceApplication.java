@@ -11,6 +11,7 @@ import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -46,7 +47,7 @@ public class AccountServiceApplication {
 }
 
 @RepositoryRestResource
-interface AccountRepository extends JpaRepository<Account, Long> {
+interface AccountRepository extends PagingAndSortingRepository<Account, Long> {
 	@RestResource(path = "by-name")
 	Collection<Account> findByAccountName(@Param("accountName") String accountName);
 }
