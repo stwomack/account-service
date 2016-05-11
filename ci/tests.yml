@@ -1,7 +1,17 @@
 platform: linux
-image: docker:///java#8
+
+image_resource:
+  type: docker-image
+  source:
+    repository: java
+    tag: 8
+
 inputs:
   - name: account-service
+
 run:
   path: "account-service/mvnw"
-  args: ["-f", "account-service/pom.xml", "package"]
+  args: ["-f", "account-service/pom.xml", "clean install"]
+
+#params:
+#  MAVEN_BASEDIR: account-service
