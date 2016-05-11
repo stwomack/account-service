@@ -13,5 +13,5 @@ run:
   path: "account-service/mvnw"
   args: ["-f", "account-service/pom.xml", "package"]
 
-#params:
-#  MAVEN_BASEDIR: account-service
+params:
+  MAVEN_BASEDIR: account-service
