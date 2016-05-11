@@ -38,7 +38,7 @@ public class AccountServiceApplication {
 	@Bean
 	CommandLineRunner dummyCLR(AccountRepository reservationRepository) {
 		return args -> {
-			Stream.of("Womack", "Smith", "Dostoyevsky", "Caesar", "Obama", "Rockefeller", "Lock")
+			Stream.of("Womack", "Dostoyevsky", "Rockefeller", "Lock")
 					.forEach(name -> reservationRepository.save(new Account(name, "checking")));
 			reservationRepository.findAll().forEach(System.out::println);
 		};
