@@ -24,7 +24,7 @@ jobs:
   - get: source-code
     trigger: true
   - task: build-and-run-tests
-    file: account-service/ci/build.yml
+    file: source-code/ci/build.yml
   - put: cf
     params:
       manifest: source-code/manifest.yml
