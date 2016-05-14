@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
@@ -30,6 +31,7 @@ import java.util.stream.Stream;
 @EnableBinding
 @Configuration
 @EnableAutoConfiguration
+@EnableDiscoveryClient
 public class AccountServiceApplication {
 
 	public static void main(String[] args) {
@@ -52,15 +54,15 @@ interface AccountRepository extends PagingAndSortingRepository<Account, Long> {
 	Collection<Account> findByAccountName(@Param("accountName") String accountName);
 }
 
-//@RefreshScope
-//@RestController
-//class MessageRestController {
-//
-//	@Value("${foo}")
-//	private String message;
-//
-//	@RequestMapping("/foo")
-//	String getMessage() {
-//		return this.message;
-//	}
-//}
+@RefreshScope
+@RestController
+class MessageRestController {
+
+	@Value("${foo}")
+	private String message;
+
+	@RequestMapping("/foo")
+	String getMessage() {
+		return this.message;
+	}
+}
