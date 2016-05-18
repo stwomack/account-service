@@ -1,14 +1,12 @@
 ---
-instances: 1
-memory: 512M
 applications:
   - name: account-service	
-    host: accountz
+    host: account-${random-word}
     path: target/account-service-0.0.1-SNAPSHOT.jar
     memory: 512MB
     instances: 1
     buildpack: java_buildpack
-    services:
-      - my-mysql
+#    services:
+#      - my-mysql
     env:
       SPRING_PROFILES_ACTIVE: dev
