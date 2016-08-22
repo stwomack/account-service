@@ -56,6 +56,7 @@ class MessageRestController {
 
     @RequestMapping("/foo")
     String getMessage() {
+        System.out.println("I Pity the FOO");
         return this.message;
     }
 }
