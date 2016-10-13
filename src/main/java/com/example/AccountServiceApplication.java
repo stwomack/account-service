@@ -26,7 +26,6 @@ interface AccountRepository extends PagingAndSortingRepository<Account, Long> {
 
 @SpringBootApplication
 @EnableAutoConfiguration
-
 @EnableDiscoveryClient
 public class AccountServiceApplication {
 
@@ -44,19 +43,18 @@ public class AccountServiceApplication {
 
         };
     }
-
 }
 
 @RefreshScope
 @RestController
 class MessageRestController {
 
-    @Value("${foo}")
+    @Value("${message}")
     private String message;
 
-    @RequestMapping("/foo")
+    @RequestMapping("/message")
     String getMessage() {
-        System.out.println("I Pity the FOO");
+        System.out.println("MESSAGE CALLED");
         return this.message;
     }
 }

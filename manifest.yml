@@ -1,14 +1,12 @@
 ---
 applications:
-  - name: account-service	
-    host: account-${random-word}
-    path: target/account-service-0.0.1-SNAPSHOT.jar
-    memory: 512MB
-    instances: 1
-    buildpack: java_buildpack_offline
-    services:
-      - capps-logger
-      - my-postgres
-#      - my-mysql
-    env:
-      SPRING_PROFILES_ACTIVE: dev
+- name: account-service
+  host: account-service
+  memory: 512MB
+  instances: 1
+  buildpack: java_buildpack_offline
+  path: target/account-service-0.0.1-SNAPSHOT.jar
+  services:
+    - my-mysql
+    - config-server
+    - my-rabbitmq
