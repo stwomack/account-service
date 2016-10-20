@@ -1,3 +1,4 @@
 ---
 foo: Default Message
 message: Default Message
+myQuery: select * from accounts where id = 1

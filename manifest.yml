@@ -8,5 +8,7 @@ applications:
   path: target/account-service-0.0.1-SNAPSHOT.jar
   services:
     - my-mysql
-    - config-server
     - my-rabbitmq
+    - my-config
+    - my-registry
+    - my-cb

@@ -8,6 +8,3 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-#  cloud:
-#    config:
-#      uri: http://localhost:8081
