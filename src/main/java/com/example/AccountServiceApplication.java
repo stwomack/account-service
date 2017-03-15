@@ -72,6 +72,12 @@ class MessageRestController {
         return this.message;
     }
 
+    @RequestMapping("/timeout")
+    String timeout() throws InterruptedException {
+        System.out.println("MESSAGE CALLED");
+        Thread.sleep(30000);
+        return this.message;
+    }
     @HystrixCommand(fallbackMethod = "reliable")
     public String getCircuit() {
         return "This is succeeding";

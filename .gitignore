@@ -11,3 +11,4 @@ buildNumber.properties
 .mvn/timing.properties
 *.cf-env.yml
 /target
+.DS_Store

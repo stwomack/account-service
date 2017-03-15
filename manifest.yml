@@ -1,14 +1,14 @@
 ---
 applications:
-- name: account-service
-  host: account-service
-  memory: 512MB
-  instances: 1
+- name: account-service-${random-word}
+  host: account-service-${random-word}
+  memory: 1GB
+  instances: 2
   buildpack: java_buildpack_offline
   path: target/account-service-0.0.1-SNAPSHOT.jar
   services:
     - my-mysql
-    - my-rabbitmq
-    - my-config
-    - my-registry
-    - my-cb
+#    - my-rabbitmq
+#    - my-config
+#    - my-registry
+#    - my-cb
