@@ -91,13 +91,27 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <!--
+                      During release:perform, enable the "release" profile
+                     -->
+                    <releaseProfiles>release</releaseProfiles>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
-    <!--<repositories>-->
-        <!--<repository>-->
-            <!--<id>spring-repository</id>-->
-            <!--<url>https://repo.spring.io/libs-release</url>-->
-        <!--</repository>-->
-    <!--</repositories>-->
+    <scm>
+        <connection>scm:git:git@github.com:stwomack/account-service.git</connection>
+        <developerConnection>scm:git:git@github.com:stwomack/account-service.git</developerConnection>
+        <url>https://github.com/stwomack/account-service</url>
+    </scm>
 </project>
