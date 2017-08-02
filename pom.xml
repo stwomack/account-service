@@ -4,7 +4,7 @@
 
     <groupId>com.womack</groupId>
     <artifactId>account-service</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>account-service</name>
@@ -108,6 +108,6 @@
         <connection>scm:git:git@github.com:stwomack/account-service.git</connection>
         <developerConnection>scm:git:git@github.com:stwomack/account-service.git</developerConnection>
         <url>https://github.com/stwomack/account-service</url>
-      <tag>HEAD</tag>
+      <tag>v1.0.0</tag>
   </scm>
 </project>
