@@ -35,7 +35,7 @@ interface AccountRepository extends PagingAndSortingRepository<Account, Long> {
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 //@EnableJpaRepositories // <---- Add this
 //@Import(RepositoryRestMvcConfiguration.class) // <---- And this
 public class AccountServiceApplication {
@@ -72,12 +72,21 @@ class MessageRestController {
         return this.message;
     }
 
-    @RequestMapping("/timeout")
+    @RequestMapping("/wait")
     String timeout() throws InterruptedException {
-        System.out.println("MESSAGE CALLED");
+        System.out.println("TIMEOUT CALLED");
         Thread.sleep(30000);
         return this.message;
     }
+
+    @RequestMapping("/environment")
+    String environment() throws InterruptedException {
+        System.out.println("ENVIRONMENT CALLED");
+        Thread.sleep(30000);
+        return System. getenv("steve");
+    }
+
+    @RequestMapping("/circuit")
     @HystrixCommand(fallbackMethod = "reliable")
     public String getCircuit() {
         return "This is succeeding";

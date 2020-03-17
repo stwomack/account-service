@@ -1,19 +1,18 @@
 ---
 applications:
-- name: account-service
-  routes:
-     - route: apis.local.pcfdev.io/accounts
+- name: account-service-${random-word}
   memory: 1GB
-  instances: 2
+  instances: 3
   buildpack: java_buildpack
-  path: target/account-service-0.0.1-SNAPSHOT.jar
-  env:
-    JAVA_OPTS: '-Djava.security.egd=file:///dev/urandom'
-    JBP_CONFIG_TOMCAT: '[tomcat.context_path: "/foo"]'
-    CONTEXT_PATH: '/foo'
-#  services:
-#    - mysqldb
-#    - my-rabbitmq
+  path: target/account-service-1.0.1-SNAPSHOT.jar
+  services:
+    - womack-cb
+    - my-rabbitmq
 #    - my-config
 #    - my-registry
-#    - my-cb
+#  routes:
+#     - route: apis.local.pcfdev.io/accounts
+#  env:
+#    JAVA_OPTS: '-Djava.security.egd=file:///dev/urandom'
+#    JBP_CONFIG_TOMCAT: '[tomcat.context_path: "/foo"]'
+#    CONTEXT_PATH: '/foo'
